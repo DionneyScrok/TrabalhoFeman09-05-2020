@@ -1,0 +1,47 @@
+﻿@model IEnumerable<PROJETO_FUP_Brasil.Models.Cursos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeCurso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorCurso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProfessorCurso)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeCurso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorCurso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfessorCurso)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id_Curso">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id_Curso">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id_Curso">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
